@@ -18,19 +18,20 @@ if("${LIBINT_PREFIX}" STREQUAL "LIBINT_PREFIX-NOTFOUND")
     message(WARNING "libint2 was not found in the default location /usr/local/libint/x.y.z")
 else()
     # If found, we can try to extract the version number
-    string(REPLACE "/" ";" LIBINT_PREFIX_LIST ${LIBINT_PREFIX})
-    list(GET LIBINT_PREFIX_LIST "-1" libint2_VERSION)
-    message(STATUS "libint2 version: ${libint2_VERSION}")
+    #string(REPLACE "/" ";" LIBINT_PREFIX_LIST ${LIBINT_PREFIX})
+    #list(GET LIBINT_PREFIX_LIST "-1" libint2_VERSION)
+    #message(STATUS ${LIBINT_PREFIX_LIST})
+    #message(STATUS "libint2 version: ${libint2_VERSION}")
 
 
     # Decide if the found version is high enough
-    if("${libint2_VERSION}" VERSION_LESS "2.2.0")   # hard-coded value of 2.2.0: this is the libint2 C++ API release
-        set(PACKAGE_VERSION_COMPATIBLE FALSE)
-    endif()
+    #if("${libint2_VERSION}" VERSION_LESS "2.2.0")   # hard-coded value of 2.2.0: this is the libint2 C++ API release
+    #    set(PACKAGE_VERSION_COMPATIBLE FALSE)
+    #endif()
 
-    if(NOT ${PACKAGE_VERSION_COMPATIBLE})
-        message(WARNING "libint2 version ${libint2_VERSION} is not high enough (must be >2.2.0)")
-    else()
+    #if(NOT ${PACKAGE_VERSION_COMPATIBLE})
+    #    message(WARNING "libint2 version ${libint2_VERSION} is not high enough (must be >2.2.0)")
+    #else()
         # Set FOUND
         set(libint2_FOUND TRUE)
 
@@ -39,5 +40,5 @@ else()
 
         # Set the LIBRARIES
         set(libint2_LIBRARIES "${libint2_LIBRARIES};${LIBINT_PREFIX}/lib/libint2.a")
-    endif()
+	#endif()
 endif()

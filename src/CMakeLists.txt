@@ -4,6 +4,7 @@
 # We want to make a static library target called "libwrp", based on the project source files
 add_library(${LIBRARY_NAME} ${LIBRARY_TYPE} ${PROJECT_SOURCE_FILES})
 set_target_properties(${LIBRARY_NAME} PROPERTIES PREFIX "")     # the final library name should be libwrp.a, and not liblibwrp.a
+target_include_directories(${LIBRARY_NAME} PUBLIC ${libint2_INCLUDE_DIRS})
 
 
 # Configure the library: include headers and link to libraries
